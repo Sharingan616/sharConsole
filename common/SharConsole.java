@@ -25,7 +25,7 @@ public class SharConsole {
 	@Instance("Minecraft Console")
 	public static SharConsole instance;
 	
-	@SidedProxy(clientSide="sharConsole.client.ClientProxySharConsole", serverSide="sharConsole.CommonProxySharConsole")
+	@SidedProxy(clientSide="sharConsole.common.client.ClientProxySharConsole", serverSide="sharConsole.common.CommonProxySharConsole")
 	public static CommonProxySharConsole proxy;
 	
 	@PreInit
