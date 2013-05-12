@@ -1,5 +1,11 @@
 package sharConsole.common;
 
+import org.lwjgl.input.Keyboard;
+
+import net.minecraft.client.settings.KeyBinding;
+import sharConsole.common.handlers.ConsoleKeyHandler;
+import sharConsole.shar.util.Debug;
+import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -21,7 +27,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 @Mod(modid = "mod_sharConsole", name="Minecraft Console", version = "1.4.0")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class SharConsole {
-	private String version = "1.4.0";
+	private Debug debug;
 	@Instance("Minecraft Console")
 	public static SharConsole instance;
 	
@@ -31,25 +37,28 @@ public class SharConsole {
 	@PreInit
 	public void preLoad(FMLPreInitializationEvent event)
 	{
-		//TODO
+		this.debug.debugger = true;
+		this.debug.modName = "Minecraft Console";
 	}
 	
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
-		//TODO
+		//Console button control
+		KeyBinding[] consoleButton = {new KeyBinding("Console", Keyboard.KEY_GRAVE)};
+		boolean[] repeats = {false};
+		KeyBindingRegistry.registerKeyBinding(new ConsoleKeyHandler(consoleButton, repeats));
+		
+		
 		proxy.registerRenderers();
 	}
 	
 	@PostInit
-	public void postLoad(FMLPostInitializationEvent event)
-	{
-		//TODO
-	}
+	public void postLoad(FMLPostInitializationEvent event) {}
 	
-	public String getVersion()
+	public static String getVersion()
 	{
-		return this.version;
+		return "1.4.0";
 	}
 
 }
