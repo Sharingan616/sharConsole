@@ -1,6 +1,6 @@
-package sharConsole.client;
+package sharConsole.common.client;
 
-import sharConsole.CommonProxySharConsole;
+import sharConsole.common.CommonProxySharConsole;
 
 public class ClientProxySharConsole  extends CommonProxySharConsole{
 	@Override

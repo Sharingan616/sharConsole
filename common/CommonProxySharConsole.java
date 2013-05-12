@@ -1,4 +1,4 @@
-package sharConsole;
+package sharConsole.common;
 
 public class CommonProxySharConsole {
 

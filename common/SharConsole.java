@@ -1,4 +1,4 @@
-package sharConsole;
+package sharConsole.common;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
