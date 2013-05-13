@@ -183,7 +183,7 @@ public class GuiConsole extends GuiChat {
     		if(this.selected < msg.length())
     			this.selected++;
     	}
-    	else if(ChatAllowedCharacters.isAllowedCharacter(c)) {
+    	else if(ChatAllowedCharacters.isAllowedCharacter(c) && c != '`' && c != '~') {
     		msg = msg.substring(0, msg.length()-selected)+c+msg.substring(msg.length()-selected,msg.length());
     	}
     }
